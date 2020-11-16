@@ -21,4 +21,4 @@ echo "db.createUser({	user: \"Employeeadmin\", pwd: \"password\",	roles:[{role: 
 /bin/su -c "mongo < init.js" - mongodb
 
 #Launch Spring application
-/bin/su -c "java -jar /home/spring/application.jar" - spring
+/bin/su -c "java -jar /home/spring/application.jar >> ~/application.log &" - spring
