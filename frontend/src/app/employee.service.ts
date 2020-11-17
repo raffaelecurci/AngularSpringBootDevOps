@@ -8,7 +8,6 @@ import { environment } from '../environments/environment';
 })
 export class EmployeeService {
 
-  //private baseUrl = 'http://localhost:8080/api/v1/employees';
   private baseUrl=environment.baseUrl+"/api/v1/employees";
 
   constructor(private http: HttpClient) { }

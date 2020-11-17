@@ -26,7 +26,5 @@ RUN chown mongodb:mongodb /home/mongodb/init.js
 
 EXPOSE 27017
 EXPOSE 8080
-#USER root:root
-#CMD ["mongod","--bind_ip_all","--fork","--logpath","/var/log/mongodb.log", "&&", "java","-jar","/home/spring/application.jar"]
-#ENTRYPOINT ["/bin/sh"]
+
 CMD ./mongoInit.sh
