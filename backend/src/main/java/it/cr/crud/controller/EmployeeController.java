@@ -23,7 +23,7 @@ import it.cr.crud.repository.EmployeeRepository;
 import it.cr.crud.service.SequenceGeneratorService;
 
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://192.168.56.11:8080")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
