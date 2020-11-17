@@ -11,53 +11,110 @@
 		<artifactId>AngularSpringBoot</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<build>
-		<resources>
-			<resource>
-				<directory>./dist/fe</directory>
-				<targetPath>static</targetPath>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.7.6</version>
-				<configuration>
-					<workingDirectory>./</workingDirectory>
-					<nodeVersion>v10.16.0</nodeVersion>
-					<npmVersion>6.9.0</npmVersion>
-<!-- 					<yarnVersion>v0.24.6</yarnVersion> -->
-				</configuration>
-				<executions>
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<!-- <phase>generate-resources</phase> -->
-					</execution>
-
-					<execution>
-						<id>npm install</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-					</execution>
-
-					<execution>
-						<id>npm run build</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>./dist/fe</directory>
+						<targetPath>static</targetPath>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.7.6</version>
 						<configuration>
-							<arguments>run build</arguments>
+							<workingDirectory>./</workingDirectory>
+							<nodeVersion>v10.16.0</nodeVersion>
+							<npmVersion>6.9.0</npmVersion>
+							<!-- <yarnVersion>v0.24.6</yarnVersion> -->
 						</configuration>
-					</execution>
+						<executions>
+							<execution>
+								<id>install node and npm</id>
+								<goals>
+									<goal>install-node-and-npm</goal>
+								</goals>
+								<!-- <phase>generate-resources</phase> -->
+							</execution>
 
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+							<execution>
+								<id>npm install</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+							</execution>
+
+							<execution>
+								<id>npm run build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>run build</arguments>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>./dist/fe</directory>
+						<targetPath>static</targetPath>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>1.7.6</version>
+						<configuration>
+							<workingDirectory>./</workingDirectory>
+							<nodeVersion>v10.16.0</nodeVersion>
+							<npmVersion>6.9.0</npmVersion>
+							<!-- <yarnVersion>v0.24.6</yarnVersion> -->
+						</configuration>
+						<executions>
+							<execution>
+								<id>install node and npm</id>
+								<goals>
+									<goal>install-node-and-npm</goal>
+								</goals>
+								<!-- <phase>generate-resources</phase> -->
+							</execution>
+
+							<execution>
+								<id>npm install</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+							</execution>
+
+							<execution>
+								<id>npm run build</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>run build --prod</arguments>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
 </project>
