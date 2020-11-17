@@ -28,7 +28,7 @@
 
     - name: Start the container
       docker_container:
-        name: hariapp
+        name: angularmongospringboot
         image: "raffaelecurci/angularmongospringboot:{{DOCKER_TAG}}"
         state: started
         published_ports:
