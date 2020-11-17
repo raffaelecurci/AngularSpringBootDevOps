@@ -1,5 +1,5 @@
 ---
-- hosts: dev
+- hosts: prod
   become: True
   tasks:
     - name: Install aptitude using apt

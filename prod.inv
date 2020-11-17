@@ -1,2 +1,2 @@
-[dev]
+[prod]
 192.168.56.11 ansible_user=fefe
